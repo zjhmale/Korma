@@ -2,16 +2,18 @@
 
 Tasty SQL for Clojure.
 
+In this fork, you can use keywordlize predicate `:between, :like, :>=` instead of symbols `'between, 'like, '>=`
+
 ## TravisCI Status
 
-[![Build Status](https://travis-ci.org/korma/Korma.png)](https://travis-ci.org/korma/Korma)
+[![Build Status](https://travis-ci.org/zjhmale/Korma.svg?branch=add-predicate-keyword)](https://travis-ci.org/zjhmale/Korma)
 
 ## Getting started
 
 Simply add Korma as a dependency to your lein project:
 
 ```clojure
-[korma "0.3.2"]
+[zjhmale/korma "0.3.2"]
 ```
 
 Note: korma depends on version 0.3.3 of jdbc, so if you have another dependency that requires a different version (like the migrations library [lobos](https://github.com/budu/lobos)), be sure to specify:

@@ -169,6 +169,7 @@
                  'not= 'korma.sql.fns/pred-not=
                  '= 'korma.sql.fns/pred-=})
 
+(def predicates-k (into {} (map (fn [[k v]] {(keyword k) v}) predicates)))
 
 (defn do-infix [k op v]
   (string/join " " [(str-value k) op (str-value v)]))
@@ -210,7 +211,8 @@
   (let [[func value] (if (vector? v)
                        v
                        [pred-= v])
-        pred? (predicates func)
+        pred? (or (predicates func)
+                  (predicates-k func))
         func (if pred?
                (resolve pred?)
                func)]
@@ -225,7 +227,9 @@
 (defn parse-where [form]
   (if (string? form)
     form
-    (walk/postwalk-replace predicates form)))
+    (->> form
+         (walk/postwalk-replace predicates)
+         (walk/postwalk-replace predicates-k))))
 
 ;;*****************************************************
 ;; Aggregates

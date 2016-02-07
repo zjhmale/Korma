@@ -1,12 +1,10 @@
-(defproject korma "0.3.2"
+(defproject zjhmale/korma "0.3.2"
   :description "Tasty SQL for Clojure"
-  :url "http://github.com/korma/Korma"
-  :mailing-list {:name "Korma Google Group"
-                 :subscribe "https://groups.google.com/group/sqlkorma"}
+  :url "http://github.com/zjhmale/Korma"
   :codox {:exclude [korma.sql.engine
                     korma.sql.fns
                     korma.sql.utils]
-          :src-dir-uri "https://github.com/korma/Korma/blob/master"
+          :src-dir-uri "https://github.com/zjhmale/Korma/tree/add-predicate-keyword"
           :src-linenum-anchor-prefix "L"}
 
   :dependencies [[org.clojure/clojure "1.6.0"]
